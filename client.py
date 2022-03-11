@@ -124,7 +124,7 @@ def newclient():
         return False
 
 
-SERVER, PORT, FORMAT, PREFIX, HEADER = "nihadeness.pythonanywhere.com", 54605, "utf-8", "[INFO]", 64
+SERVER, PORT, FORMAT, PREFIX, HEADER = "sussyip", 8080, "utf-8", "[INFO]", 64
 ADDR = (SERVER, PORT)
 
 # try:
