@@ -1,9 +1,0 @@
-{
-  "client.connect": "{prefix} [{ip}][{port}] Connected.",
-  "client.disconnect": "{prefix} [{ip}][{port}] Disconnected.",
-  "client.message": "{prefix} [{ip}][{port}] [{packet}] [{msg}]",
-  "client.request": "{prefix} [{ip}][{port}] Requesting [{msg}]", 
-  "server.start": "{prefix} Server is starting...",
-  "server.error": "{prefix} Server error.",
-  "server.listen": "{prefix} Server is listening on {ip};"
-} 
