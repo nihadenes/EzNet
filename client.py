@@ -127,7 +127,7 @@ def client():
 
     # Just send random things for testing.
     for i in range(10000):
-        send(client=client, packagetype="client.message", message=randomlet(100), key=hash_key)
+        send(client=client, packagetype="client.message", message=randomlet(1000000), key=hash_key)
 
 
 # Run the client forever, even if there's errors.
