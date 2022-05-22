@@ -45,7 +45,10 @@ def decode64(decde):
 
 # For checking if a string is Base64.
 def isBase64(s):
-    return base64.b64encode(base64.b64decode(s)).decode() == s
+    try:
+        return base64.b64encode(base64.b64decode(s)).decode() == s
+    except:
+        return False
 
 # Get64 is for checking how many "=" were there in the encoded string.
 def get64(string):
