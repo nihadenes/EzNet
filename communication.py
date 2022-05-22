@@ -145,6 +145,7 @@ def getdec(msg, key=None):
 
         # If it's a normal message, just check the hash.
         elif header_packet == hash_CRC32(main_packet):
+            # Return the message.
             return json.loads(main_packet)
         else:
             raise Exception(300)

@@ -201,6 +201,7 @@ while True:
     try:
         server()
 
+    # Except.
     except Exception as e:
         print(f"Server failed, [{e}], [{e.__class__}].")
         time.sleep(5)
