@@ -1,6 +1,6 @@
 # ------------------------- [ Sub Project File | Coding: utf-8 ] -------------------------- #
-# Project: SocketEncryption                                                                  #
-# File: main.py	                                                                            #
+# Project: EzNet                                                                            #
+# File: encryption.py	                                                                    #
 # Python Version: 3.10.2 - Tested: 3.10.2 - All others are untested.                        #
 # The libraries should get installed among the integrated libraries: Libraries			    #
 # ----------------------------------------- [ ! ] ----------------------------------------- #
@@ -12,13 +12,14 @@
 # License: License																			#
 # --------------------------------------- [ Enjoy ] --------------------------------------- #
 
-import binascii
+# Casual importances.
 import hashlib
 import random
 import string
 import base64
 import zlib
 
+# RSA encryption modules.
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
@@ -28,6 +29,7 @@ from cryptography.fernet import Fernet
 # Functions for encrypting and hashing.
 
 def encode64(encde):
+    # Stripping "=" because I'm a pysyco.
     return base64.b64encode(encde.encode("utf-8")).decode("utf-8").strip("=")
 
 

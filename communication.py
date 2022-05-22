@@ -1,6 +1,6 @@
 # ------------------------- [ Sub Project File | Coding: utf-8 ] -------------------------- #
 # Project: EzNet                                                                            #
-# File: communication.py	                                                                        #
+# File: communication.py	                                                                #
 # Python Version: 3.10.2 - Tested: 3.10.2 - All others are untested.                        #
 # The libraries should get installed among the integrated libraries: Libraries			    #
 # ----------------------------------------- [ ! ] ----------------------------------------- #
@@ -44,11 +44,11 @@ error_messages = {
     101: "Client got disconnected.",
     102: "Client sent a request that is not supported.",
     103: "Client sent so many fucking packets.",
-    
+
     200: "Server error.",
     201: "Server sent corrupt packet.",
     202: "Server got disconnected.",
-    
+
     300: "Corrupt packet.",
     301: "Connection lost.",
     302: "Connection failed.",
@@ -67,7 +67,7 @@ def console_log(ip=None, port=None, id=None, cpacket=None, packet=None, msg=None
         cpacket = int(cpacket)
     except:
         cpacket = str(cpacket)
-        
+
     if cpacket in error_messages:
         prefix = "error"
         log_msg = error_messages[int(cpacket)]
@@ -78,7 +78,8 @@ def console_log(ip=None, port=None, id=None, cpacket=None, packet=None, msg=None
 
     ids = f"[{str(ip)}:{str(port)}] " if id == True else ""
 
-    date = "["  + datetime.today().strftime('%Y-%m-%d') + "] [" + datetime.today().strftime('%H:%M:%S') + "]"
+    date = "[" + datetime.today().strftime('%Y-%m-%d') + "] [" + \
+        datetime.today().strftime('%H:%M:%S') + "]"
     premsg = PREFIX[prefix] + " " + date + " "
 
     end = premsg + ids + log_msg
@@ -88,7 +89,8 @@ def console_log(ip=None, port=None, id=None, cpacket=None, packet=None, msg=None
 
 
 def getenc(packagetype=None, message=None, ipadress=None, key=None):
-    message = json.dumps({"packagetype": packagetype, "message": message, "ipadress": ipadress})
+    message = json.dumps(
+        {"packagetype": packagetype, "message": message, "ipadress": ipadress})
     if key == None:
         return encode64(encode64(hash_CRC32(message)) + "_" + encode64(message))
     else:
@@ -103,7 +105,7 @@ def getdec(msg, key=None):
             try:
                 return json.loads(fernetdecrypt(key, main_packet))
             except:
-                raise Exception(303)
+                raise Exception(300)
 
         elif header_packet == hash_CRC32(main_packet):
             return json.loads(main_packet)
